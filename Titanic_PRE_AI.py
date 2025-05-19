@@ -2,8 +2,6 @@
 import pandas as pd
 import numpy as np
 from sklearn import linear_model
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 
 #Loading data from a csv file(using Pandas):
 TR_Data_df = pd.read_csv("train.csv")
@@ -35,16 +33,9 @@ X_TS_Data = TS_Data_df[["Pclass","Sex","Age","SibSp","Parch","Fare","Cabin"]].va
 #Loading the model from Sklearn and fitting it with the data:
 LR_model = linear_model.LogisticRegression()
 # LR_model.fit(X_Data,Y_Data)
+LR_model.fit(X_Data,Y_Data)
 
-#making a custom test data to test model accuracy:
-X_train,X_val,Y_train,Y_val = train_test_split(X_Data,Y_Data,test_size=0.2,random_state=42)
-#Testing the model:
-LR_model.fit(X_train,Y_train)
-preds = LR_model.predict(X_val)
-print("Accuracy score: ",accuracy_score(Y_val,preds))
-'''
 #Predicting and Exporting Result File:
 PRE_Y_Data = LR_model.predict(X_TS_Data)
 TS_Data_df["Survived"] = PRE_Y_Data
 TS_Data_df.to_csv("Prediction_Results.csv",index=False)
-'''
