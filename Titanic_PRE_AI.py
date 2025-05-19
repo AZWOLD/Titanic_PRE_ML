@@ -1,6 +1,7 @@
 #Importing needed libraries:
 import pandas as pd
 import numpy as np
+from sklearn import linear_model
 
 #Loading data from a csv file(using Pandas):
 Data_df = pd.read_csv("train.csv")
@@ -13,6 +14,10 @@ Data_df["Survived"] = Data_df.pop("Survived")
 Data_df["Age"].fillna(int(Data_df["Age"].mean()),inplace=True)
 Data_df["Cabin"] = Data_df["Cabin"].notna().astype(int)
 
+#Reshaping data for Inputing:
 X_Data = np.array(Data_df[["Pclass","Sex","Age","SibSp","Parch","Ticket","Fare","Cabin"]]).reshape(-1,1)
 Y_Data = np.array(Data_df["Survived"])
 
+#Loading the model from Sklearn and fitting it with the data:
+LR_model = linear_model.LogisticRegression()
+LR_model.fit(X_Data,Y_Data)
