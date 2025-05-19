@@ -37,5 +37,6 @@ LR_model.fit(X_Data,Y_Data)
 
 #Predicting and Exporting Result File:
 PRE_Y_Data = LR_model.predict(X_TS_Data)
+TS_Data_df = TS_Data_df.drop(columns=["Pclass","Sex","Age","SibSp","Parch","Fare","Cabin","Embarked"])
 TS_Data_df["Survived"] = PRE_Y_Data
 TS_Data_df.to_csv("Prediction_Results.csv",index=False)
