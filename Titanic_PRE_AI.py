@@ -32,8 +32,7 @@ X_TS_Data = np.array(TS_Data_df[["Pclass","Sex","Age","SibSp","Parch","Fare","Ca
 LR_model = linear_model.LogisticRegression()
 LR_model.fit(X_Data,Y_Data)
 
-#Predicting:
+#Predicting and Exporting Result File:
 PRE_Y_Data = LR_model.predict(X_TS_Data)
 TS_Data_df["Survived"] = PRE_Y_Data
-print(TS_Data_df)
 TS_Data_df.to_csv("Prediction_Results.csv",index=False)
