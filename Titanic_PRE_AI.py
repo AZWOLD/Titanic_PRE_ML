@@ -1,5 +1,6 @@
 #Importing needed libraries:
 import pandas as pd
+import numpy as np
 
 #Loading data from a csv file(using Pandas):
 Data_df = pd.read_csv("train.csv")
@@ -11,3 +12,7 @@ Data_df["Embarked"] = Data_df["Embarked"].map({"S": 0,"C":1,"Q":2})
 Data_df["Survived"] = Data_df.pop("Survived")
 Data_df["Age"].fillna(int(Data_df["Age"].mean()),inplace=True)
 Data_df["Cabin"] = Data_df["Cabin"].notna().astype(int)
+
+X_Data = np.array(Data_df[["Pclass","Sex","Age","SibSp","Parch","Ticket","Fare","Cabin"]]).reshape(-1,1)
+Y_Data = np.array(Data_df["Survived"])
+
