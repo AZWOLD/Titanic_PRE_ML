@@ -2,7 +2,11 @@
 import pandas as pd
 import numpy as np
 from sklearn import linear_model
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
+Scaler = StandardScaler()
 #Loading data from a csv file(using Pandas):
 TR_Data_df = pd.read_csv("train.csv")
 TS_Data_df = pd.read_csv("test.csv")
@@ -24,19 +28,26 @@ TS_Data_df["Embarked"] = TS_Data_df["Embarked"].map(Embarked_Map)
 TS_Data_df["Age"].fillna(int(TS_Data_df["Age"].mean()),inplace=True)
 TS_Data_df["Fare"].fillna(int(TS_Data_df["Fare"].mean()),inplace=True)
 TS_Data_df["Cabin"] = TS_Data_df["Cabin"].notna().astype(int)
-
 #Reshaping data for Fitting and predicting:
 X_Data = TR_Data_df[["Pclass","Sex","Age","SibSp","Parch","Fare","Cabin"]].values
 Y_Data = TR_Data_df["Survived"].values
 X_TS_Data = TS_Data_df[["Pclass","Sex","Age","SibSp","Parch","Fare","Cabin"]].values
-
+train_x,test_x,train_y,test_y = train_test_split(X_Data,Y_Data)
+train_X_scaled = Scaler.fit_transform(train_x)
+test_X_scaled = Scaler.transform(test_x)
 #Loading the model from Sklearn and fitting it with the data:
 LR_model = linear_model.LogisticRegression()
-# LR_model.fit(X_Data,Y_Data)
-LR_model.fit(X_Data,Y_Data)
+LR_model.fit(train_X_scaled,train_y)
 
+preds = LR_model.predict(test_X_scaled)
+
+print("accuracy: ",accuracy_score(test_y,preds))
+
+
+'''
 #Predicting and Exporting Result File:
 PRE_Y_Data = LR_model.predict(X_TS_Data)
 TS_Data_df = TS_Data_df.drop(columns=["Pclass","Sex","Age","SibSp","Parch","Fare","Cabin","Embarked"])
 TS_Data_df["Survived"] = PRE_Y_Data
 TS_Data_df.to_csv("Prediction_Results.csv",index=False)
+'''
