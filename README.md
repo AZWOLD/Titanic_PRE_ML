@@ -1,3 +1,12 @@
+## 📚 Table of Contents
+
+- [🛥️ Project Overview](#titanic-survival-prediction-ml-project-️)
+- [🚀 Setup](#-setup)
+- [🤖 What the project does](#-what-the-project-does)
+  - [🔧 Want to test your own data?](#-want-to-test-your-own-data)
+- [🏃 Running the ML](#-running-the-ml)
+- [🙏 Credit](#-credit)
+
 # Titanic Survival Prediction ML Project 🛥️
 
 This is a simple machine learning project using the famous Kaggle dataset: **Titanic - Machine Learning from Disaster**.
@@ -9,31 +18,31 @@ The current model accuracy is approximately **77%**.
 
 ## 🚀 Setup
 
-### 1. Clone the repo:
+### 1. Clone the repo
 ```bash
 git clone https://github.com/AZWOLD/Titanic_PRE_AI.git
 ```
-### 2. Navigate to the folder:
+### 2. Navigate to the folder
 ```bash
 cd Titanic_PRE_AI.py
 ```
-### 3. Install dependencies:
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🤖 What the project does:
+## 🤖 What the project does
 The ML predicts the survival stat for all the passengers in the "**test.csv**" file.
 
->### 🔧 Want to test your own data?:
+>### 🔧 Want to test your own data?
 >Edit the test.csv file and add your custom passengers. Then run the script as shown below.
 
-## 🏃 Running the ML:
+## 🏃 Running the ML
 Open your Terminal or command prompt inside the project folder and run
 ```bash
 python Titanic_PRE_AI.py
 ```
 The script will output the survival predictions based on the **test.csv** content.
 
-## 🙏 Credit:
+## 🙏 Credit
 Created with 💻 by [AZWOLD](https://github.com/AZWOLD)
