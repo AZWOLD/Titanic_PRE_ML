@@ -1,13 +1,13 @@
 ## 📚 Table of Contents
 
-- [🛥️ Overview](#-overview)
+- [🛥️ Description](#-description)
 - [🚀 Setup](#-setup)
-- [🤖 What the project does](#-what-the-project-does)
+- [🤖 Overview](#-Overveiw)
   - [🔧 Want to test your own data?](#-want-to-test-your-own-data)
 - [🏃 Running the ML](#-running-the-ml)
 - [🙏 Credit](#-credit)
 
-# 🛥️ Overview
+# 🛥️ Description
 
 This is a simple machine learning project using the famous Kaggle dataset: **Titanic - Machine Learning from Disaster**.
 
@@ -31,7 +31,7 @@ cd Titanic_PRE_AI.py
 pip install -r requirements.txt
 ```
 
-## 🤖 What the project does
+## 🤖 Overview
 The ML predicts the survival stat for all the passengers in the "**test.csv**" file.
 
 >### 🔧 Want to test your own data?
