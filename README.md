@@ -1,13 +1,13 @@
 ## 📚 Table of Contents
 
-- [🛥️ Project Overview](#titanic-survival-prediction-ml-project-️)
+- [🛥️ Overview](#-overview)
 - [🚀 Setup](#-setup)
 - [🤖 What the project does](#-what-the-project-does)
   - [🔧 Want to test your own data?](#-want-to-test-your-own-data)
 - [🏃 Running the ML](#-running-the-ml)
 - [🙏 Credit](#-credit)
 
-# Titanic Survival Prediction ML Project 🛥️
+# 🛥️ Overview
 
 This is a simple machine learning project using the famous Kaggle dataset: **Titanic - Machine Learning from Disaster**.
 
